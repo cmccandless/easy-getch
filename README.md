@@ -9,3 +9,12 @@ Inspired by [this article](https://code.activestate.com/recipes/134892/0).
 ```bash
 pip install easy_getch
 ```
+
+## Usage
+
+```Python
+from easy_getch import getch
+
+ch = getch()
+print(ch)
+```
