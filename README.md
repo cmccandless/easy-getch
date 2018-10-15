@@ -3,7 +3,7 @@
 # easy-getch
 Easily get a single character.
 
-Inspired by [this article](https://code.activestate.com/recipes/134892/0).
+Inspired by [this article](https://code.activestate.com/recipes/134892).
 
 ## Installation
 ```bash
