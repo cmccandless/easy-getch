@@ -1,20 +1,14 @@
 import subprocess
 import sys
 import setuptools
+from changelog import changelog
 from easy_getch.__version__ import VERSION
-
-
-def changelog():
-    log =  subprocess.check_output('bin/changelog')
-    if sys.version_info[0] == 3:
-        log = log.decode()
-    return log
 
 
 if __name__ == '__main__':
     with open("README.md", "r") as fh:
         long_description = fh.read()
-    long_description += changelog() + '\n'
+    long_description += '\n'.join(changelog())
 
     setuptools.setup(
         name="easy_getch",
