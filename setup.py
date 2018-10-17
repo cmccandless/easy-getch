@@ -24,7 +24,7 @@ if __name__ == '__main__':
         ),
         long_description=long_description,
         long_description_content_type="text/markdown",
-        url="https://github.com/cmccandless/easy_getch",
+        url="https://github.com/cmccandless/easy-getch",
         packages=setuptools.find_packages(),
         classifiers=(
             "Programming Language :: Python :: 3",
