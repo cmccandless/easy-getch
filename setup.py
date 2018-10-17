@@ -8,7 +8,11 @@ from easy_getch.__version__ import VERSION
 if __name__ == '__main__':
     with open("README.md", "r") as fh:
         long_description = fh.read()
-    long_description += '\n'.join(changelog())
+    try:
+        subprocess.check_call('git')
+        long_description += '\n'.join(changelog())
+    except subprocess.CalledProcessError:
+        pass
 
     setuptools.setup(
         name="easy_getch",
