@@ -35,5 +35,5 @@ deploy:
     branch: master
     tags: true
     distributions: sdist bdist_wheel
-    repo: cmccandless/easy_getch
+    repo: cmccandless/easy-getch
     python: '3.6'
