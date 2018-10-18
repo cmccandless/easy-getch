@@ -2,6 +2,10 @@
 import subprocess
 import sys
 
+AUTHOR = 'cmccandless'
+REPO = 'easy_getch'
+URL_BASE = "https://github.com/{}/{}/commit/".format(AUTHOR, REPO)
+
 
 def command_output(args, strip_chars=' \n\t'):
     output = subprocess.check_output(args)
@@ -17,22 +21,17 @@ def command_output(args, strip_chars=' \n\t'):
     ]
 
 
-AUTHOR = 'cmccandless'
-REPO = 'easy_getch'
-URL_BASE = "https://github.com/{}/{}/commit/".format(AUTHOR, REPO)
-FMT = "- %s ([%h]({}%H))%n".format(URL_BASE)
-TAG_PREV, TAG_CURRENT = command_output(['git', 'tag'])[-2:]
-
-
 def changelog():
+    fmt = "- %s ([%h]({}%H))%n".format(URL_BASE)
+    tag_prev, tag_current = command_output(['git', 'tag'])[-2:]
     lines = ['## Changelog']
     lines.extend(
         command_output(
             [
                 'git',
                 'log',
-                '--pretty=format:"{}"'.format(FMT),
-                '{}..{}'.format(TAG_PREV, TAG_CURRENT)
+                '--pretty=format:"{}"'.format(fmt),
+                '{}..{}'.format(tag_prev, tag_current)
             ],
             strip_chars=' \n\t"'
         )[::-1]
